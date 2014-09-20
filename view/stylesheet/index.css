@@ -97,6 +97,13 @@ html,body{
 
 .reg-field {
 	text-align: center !important;
+	overflow-x: hidden !important;
+	overflow-y: scroll !important;
+}
+
+.error-S {
+	color: red !important;
+	float: center;
 }
 /*@media (max-width: @screen-xs-max) {
 	.product-cell {
