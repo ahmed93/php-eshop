@@ -1,0 +1,11 @@
+.form-horizontal {
+    /*padding-top: 1%;*/
+    height: 100%;
+    width: 100%;
+}
+
+.form-horizontal a {
+    vertical-align: center;
+    float:left;
+    cursor: pointer;
+}
