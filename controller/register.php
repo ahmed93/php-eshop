@@ -3,7 +3,7 @@
 <html>
 <body>
 <?php
-// register();
+register();
 header("Location:../index.html");
 function register()
 {
