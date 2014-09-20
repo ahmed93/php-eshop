@@ -6,12 +6,30 @@
  */
 $(document).ready(
 	function () {
-		$("#login-div").load("view/inc/_login.html");
 		$("#footer-div").load("view/inc/_footer.html");
 		// $("#main-body").load("view/inc/_registration.html");
 		// $("#main-body").load("view/inc/_productsTest.html");
+		checkLoginUser();
 		getProducts();
 });
+
+function myprofile() {
+
+}
+
+function checkLoginUser() {
+	$.ajax({
+		type: "GET",
+		url: "http://localhost/AL/controller/check.php",
+		success: function(data){
+			if (data == "ok") {
+				$("#login-div").load("view/inc/_logininfo.html");
+			}else if(data == "404"){
+				$("#login-div").load("view/inc/_login.html");
+			}
+		}
+	});
+}
 
 function checkFN() {
 	var fn = $("#firstname").val();
