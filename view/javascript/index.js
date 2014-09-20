@@ -1,3 +1,9 @@
+/*
+ *	document.ready : For initializing some divs with values on page ready
+ *	Parameters: none
+ *	Return : none
+ *	Author: Ahmed Mohmaed Magdi
+ */
 $(document).ready(
 	function () {
 		$("#login-div").load("view/inc/_login.html");
@@ -6,8 +12,13 @@ $(document).ready(
 		// $("#main-body").load("view/inc/_productsTest.html");
 		getProducts();
 });
-//it is the most expensive smartphone you will ever buy
 
+/*
+ *	GetProducts: for fetching the products via request from the server
+ *	Parameters: none
+ *	Return : none
+ *	Author: Ahmed Mohmaed Magdi
+ */
 function getProducts() {
 	$.ajax({
 		type: "POST",
@@ -44,28 +55,77 @@ function getProducts() {
 								</div>";
 			};
 			$("#main-body").html(productHTML);
-	
 		}
 	});
 }
 
-// function regieter() {
-// 	var id = $("#firstname").text;
-// 				var fn = $("#lastname").text;
-// 				var ln = $("#email").text;
-// 				var ps = $("#password").text;
-// 				var psc = $("#passwordconf").text;
-// 				var av = $("#avatarurl").text;
-// 	$.ajax({
-// 		type: "POST",
-// 		data: {	"first_name" => fn,
-// 				"last_name" => ln,
-// 				"password" => ps,
-// 				"passwordC" => psc,
-// 				"avatar" => av},
-// 		url: "http://localhost/AL/controller/register.php",
-// 		success: function(data){
-// 			getProducts();
-// 		}
-// 	});
-// }
+function validate(firstN, lastN, EM, Pass, PassC, errorArray) {
+	if(firstN.length < 1) {
+		document.getElementById("firstname").style.border= "red 1px solid";
+		errorArray.push("Please enter you FirstName");
+	}
+	if(lastN.length < 1) {
+		document.getElementById("lastname").style.border= "red 1px solid";
+		errorArray.push("Please enter you LastName");
+	}
+	if(EM.length < 1) {
+		document.getElementById("email").style.border= "red 1px solid";
+		errorArray.push("Please enter you Email");
+	}
+	if(Pass.length < 1) {
+		document.getElementById("password").style.border= "red 1px solid";
+		errorArray.push("Please enter you Password");
+	}
+	if(PassC.length < 1) {
+		document.getElementById("passwordconf").style.border= "red 1px solid";
+		errorArray.push("Please enter you Password Conformation");
+	}
+	return errorArray.length == 0;
+}
+
+
+function showErrorMessage(arrayOfErrors) {
+	var data = "";
+	for (var i = 0; i < arrayOfErrors.length; i++) {
+		data+="<div class=\"alert alert-danger\">"+arrayOfErrors[i]+"</div>";
+	}
+	$("#errors").html(data);
+}
+
+/*
+ *	regiester : To regiester Users via sending requests to the server side
+ *	Parameters: none
+ *	Return : none
+ *	Author: Ahmed Mohmaed Magdi
+ */
+function regieter() {
+	$("#errors").html("");
+	var errorArraysMessage = new Array();
+	var fn = $("#firstname").val();
+	var ln = $("#lastname").val();
+	var em = $("#email").val();
+	var ps = $("#password").val();
+	var psc = $("#passwordconf").val();
+	var av = $("#avatarurl").val();
+	if (!validate(fn, ln, em, ps, psc, errorArraysMessage)) {
+		showErrorMessage(errorArraysMessage);
+		return;
+	}
+	// $.ajax({
+	// 	type: "POST",
+	// 	data: {	"first_name": fn,
+	// 			"last_name": ln,
+	// 			"email": em,
+	// 			"password": ps,
+	// 			"passwordC": psc,
+	// 			"avatar": av},
+	// 	url: "http://localhost/AL/controller/register.php",
+	// 	success: function(data){
+	// 		if (data == "OK") {
+	// 			getProducts();	
+	// 		}else if(data == "email"){
+	// 			alert("email");
+	// 		}
+	// 	}
+	// });
+}

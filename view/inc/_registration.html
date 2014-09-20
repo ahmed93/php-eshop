@@ -1,5 +1,6 @@
+<div id="errors" align="center" class="errors row well"></div>
 <div class="reg-form container" align="center" style="width:40%;">
-	<form class="form-horizontal" id="registration" method='post' action='controller/register.php'>
+	<form class="form-horizontal" id="registration">
 		<fieldset>
 			<legend>Registration Form</legend>
 			<hr style = 'background-color:#000000; height:1px; width:50%;' />
@@ -13,22 +14,22 @@
 			</div>
 			<div class="well row">
 				<label class="reg-field col-md-4">Email Address:</label>
-				<input class="col-md-6" type="text" id="email" name="email">
+				<input class="col-md-6" type="email" id="email" name="email">
 			</div>
 			<div class="well row">
 				<label class="reg-field col-md-4">password:</label>
-				<input class="col-md-6" type="text" id="password" name="password">
+				<input class="col-md-6" type="password" id="password" name="password">
 			</div>
 			<div class="well row">
 				<label class="reg-field col-md-4">password conformation:</label>
-				<input class="col-md-6" type="text" id="passwordconf" name="passwordC">
+				<input class="col-md-6" type="password" id="passwordconf" name="passwordC">
 			</div>
 			<div class="well row">
 				<label class="reg-field col-md-4">Avatar URL:</label>
 				<input class="col-md-6" type="text" id="avatarurl" name="avatar">
 			</div>
 			<div class="well row">
-				<button type="submit" class="btn btn-success" onClick="regieter();">Submit</button>
+				<button type="button" class="btn btn-success" onClick="regieter();">Submit</button>
 			</div>
 		</fieldset>
 	</form>
