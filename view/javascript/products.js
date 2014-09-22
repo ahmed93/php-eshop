@@ -1,3 +1,9 @@
+/*
+ *	GetProducts: for fetching the products via request from the server
+ *	Parameters: none
+ *	Return : none
+ *	Author: Ahmed Mohmaed Magdi
+ */
 function getProducts() {
 	$.ajax({
 		type: "POST",
@@ -16,7 +22,7 @@ function getProducts() {
 
 				productHTML +=" <div class=\"product-cell well col-md-2 \"> \
 									<div class=\"product-img well row\"> \
-										<img class=\"image-responsive\" src=\""+array[i]['img']+"\" alt=\""+array[i]['name']+"\"> \
+										<img class=\"image-responsive\" src=\""+img+"\" alt=\""+name+"\"> \
 									</div> \
 									<div class=\"product-des row\"> \
 										<div class=\"well\"> \
@@ -25,10 +31,10 @@ function getProducts() {
 									</div> \
 									<div class=\"product-opt well row\"> \
 										<div class=\"col-md-4\"> \
-											<button name=\"product_"+array[i]['ID']+"\" type=\"submit\" class=\"btn btn-primary\">buy</button> \
+											<button name=\"product_"+id+"\" type=\"button\" class=\"btn btn-primary\" onClick=\"conformationProduct("+id+");\">Buy</button> \
 										</div> \
 										<div class=\"col-md-offset-3 col-md-4\"> \
-											<p>"+array[i]['price']+"EGP</p> \
+											<p>"+price+"EGP</p> \
 										</div> \
 									</div> \
 								</div>";
@@ -36,4 +42,14 @@ function getProducts() {
 			$("#main-body").html(productHTML);
 		}
 	});
+}
+
+function conformationProduct(productID) {
+	alert(productID);
+	if (!checkforLoginUser()) {
+		reg();
+		return;
+	}
+	$("#main-body").html("");
+	$("#main-body").load("view/inc/_confomationView.html");
 }

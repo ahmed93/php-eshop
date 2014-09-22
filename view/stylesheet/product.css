@@ -1,0 +1,32 @@
+.product-cell {
+	height: 100% !important;
+	border: 1px solid #e3e3e3;
+  	border-radius: 4px;
+  	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.product-img {
+	text-align: center;
+	height: 50% !important;
+}
+
+.product-img img {
+	width: 200px;
+	height: 200px;
+}
+
+.product-des {
+	text-align: center;
+	overflow-y: scroll; 
+	width: 100%;
+	height: 60px !important;
+
+}
+
+.product-opt {
+	text-align: left;
+	vertical-align: center;
+	width: 100%;
+	height: 25% !important;
+}

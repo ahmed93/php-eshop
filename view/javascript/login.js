@@ -1,7 +1,3 @@
-function reg() {
-	$("#main-body").load("view/inc/_registration.html");
-}
-
 function login() {
 	var em = $("#inputEmail3").val();
 	var pass = $("#inputPassword3").val();
@@ -26,3 +22,21 @@ function login() {
 	});
 }
 
+function checkforLoginUser() {
+	var logedIn = false;
+	$.ajax({
+		type: "GET",
+		url: "http://localhost/AL/controller/check.php",
+		success: function(data){
+			if (data == "ok") {
+				$("#login-div").load("view/inc/_logininfo.html");
+				logedIn = true;
+			}else if(data == "404"){
+				$("#login-div").load("view/inc/_login.html");
+				logedIn = false;
+			}
+		}
+	});
+
+	return logedIn;
+}

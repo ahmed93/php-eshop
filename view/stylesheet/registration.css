@@ -1,0 +1,20 @@
+.reg-form {
+	background-color: #e6e6e6;
+	/*border-color: #ddd !important;
+  	border-color: rgba(0, 0, 0, .15)!important;*/
+  	border: 1px solid #e3e3e3;
+  	border-radius: 4px;
+  	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.reg-field {
+	text-align: center !important;
+	overflow-x: hidden !important;
+	overflow-y: scroll !important;
+}
+
+.error-S {
+	color: red !important;
+	float: center;
+}
