@@ -4,7 +4,12 @@ html,body{
 }
 
 .main-header {
-	height: 200px;
+	/*height: 200px;*/
+}
+.main-header hr{
+	background-color:#000000; 
+	height:0.1em; 
+	width: 100%;
 }
 
 .main-header .headerDiv {
@@ -19,8 +24,8 @@ html,body{
 }
 
 .main-header .logo-div img {
-	width: 60%;
-	height: 95%;
+	width: 15em;
+	height: 13em;
 	padding-top: 2%;
 }
 
