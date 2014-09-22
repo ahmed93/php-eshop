@@ -1,10 +1,6 @@
-<!DOCTYPE html>
 <?php session_start(); ?>
-<html>
-<body>
 <?php
 register();
-header("Location:../index.html");
 function register()
 {
 	$con=mysqli_connect("localhost","root","root","eshop");
@@ -21,7 +17,8 @@ function register()
 	$query = mysqli_query($con, "SELECT ID FROM User WHERE email= '$_POST[email]' and password = '$_POST[password]'");
 	if (mysqli_num_rows($query) != 0)
 	{
-		echo "email already exists";
+		echo "email";
+		// echo "email already exists";
 	}
 	else {
 		$query2 = mysqli_query($con, "INSERT INTO User(first_name,last_name,email,password,avatar)
@@ -29,6 +26,7 @@ function register()
 		// echo "YOUR REGISTRATION IS COMPLETED...";
 		$user_id = mysqli_insert_id();
 		$_SESSIION['U_ID']=$user_id;
+		echo "OK";
 		mysqli_close($con);
 	}
 }
@@ -81,5 +79,3 @@ function register()
 // 	}
 // }
 ?>
-</body>
-</html>

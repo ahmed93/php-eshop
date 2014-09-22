@@ -1,34 +1,60 @@
+<div id="errors" align="center" class="errors row well"></div>
 <div class="reg-form container" align="center" style="width:40%;">
-	<form class="form-horizontal" id="registration" method='post' action='controller/register.php'>
+	<form class="form-horizontal" id="registration">
 		<fieldset>
 			<legend>Registration Form</legend>
 			<hr style = 'background-color:#000000; height:1px; width:50%;' />
 			<div class="well row">
-				<label class="reg-field col-md-4">First Name:</label>
-				<input class="col-md-6" type="text" id="firstname" name="first_name">
+				<div class="row">
+					<label class="reg-field col-md-4">First Name:</label>
+					<input class="col-md-6" type="text" id="firstname" name="first_name" onblur="checkFN();">
+				</div>
+				<div id="error-fn" class="error-S reg-field row col-md-offset-5 col-md-7">
+				</div>
 			</div>
+
 			<div class="well row">
-				<label class="reg-field col-md-4">Last Name:</label>
-				<input class="col-md-6" type="text" id="lastname" name="last_name">
+				<div class="row">
+					<label class="reg-field col-md-4">Last Name:</label>
+				<input class="col-md-6" type="text" id="lastname" name="last_name" onblur="checkLN();">
+				</div>
+				<div id="error-ln" class="error-S reg-field row col-md-offset-5 col-md-7"></div>
 			</div>
+
 			<div class="well row">
-				<label class="reg-field col-md-4">Email Address:</label>
-				<input class="col-md-6" type="text" id="email" name="email">
+				<div class="row">
+					<label class="reg-field col-md-4">Email Address:</label>
+				<input class="col-md-6" type="email" id="email" name="email" onblur="checkMail();">
+				</div>
+				<div id="error-em" class="error-S reg-field row col-md-offset-5 col-md-7"></div>
 			</div>
+
 			<div class="well row">
-				<label class="reg-field col-md-4">password:</label>
-				<input class="col-md-6" type="text" id="password" name="password">
+				<div class="row">
+					<label class="reg-field col-md-4">password:</label>
+				<input class="col-md-6" type="password" id="password" name="password" onblur="checkPass();">
+				</div>
+				<div id="error-ps" class="error-S reg-field row col-md-offset-5 col-md-7"></div>
 			</div>
+
 			<div class="well row">
-				<label class="reg-field col-md-4">password conformation:</label>
-				<input class="col-md-6" type="text" id="passwordconf" name="passwordC">
+				<div class="row">
+					<label class="reg-field col-md-4">password conformation:</label>
+				<input class="col-md-6" type="password" id="passwordconf" name="passwordC" onblur="checkPassCon();">
+				</div>
+				<div id="error-psc" class="error-S reg-field row col-md-offset-5 col-md-7"></div>
 			</div>
+
 			<div class="well row">
-				<label class="reg-field col-md-4">Avatar URL:</label>
+				<div class="row">
+					<label class="reg-field col-md-4">Avatar URL:</label>
 				<input class="col-md-6" type="text" id="avatarurl" name="avatar">
+				</div>
+				<div id="error-av" class="error-S reg-field row col-md-offset-5 col-md-7"></div>
 			</div>
+
 			<div class="well row">
-				<button type="submit" class="btn btn-success" onClick="regieter();">Submit</button>
+				<button type="button" class="btn btn-success" onClick="regieter();">Submit</button>
 			</div>
 		</fieldset>
 	</form>
