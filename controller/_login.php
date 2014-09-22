@@ -4,7 +4,7 @@
 
 <html>
 	<body>
-		here log <br>
+		here loog <br>
 		<?php
 			function login(){
 				$con=mysqli_connect("localhost","root","root","eshop");
@@ -12,24 +12,22 @@
 				if (mysqli_connect_errno()) {
 				  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 				}
-
 				$result = mysqli_query($con, "SELECT ID FROM User WHERE email = '$_POST[email]' and password = '$_POST[password]'");
+				//$result = mysqli_query($con, "SELECT ID FROM User WHERE email = '' and password = ''");
 				foreach ($result as $value) {
 					foreach ($value as $key) {
  						//echo "$key <br>";
  						$int = $key;
  					}
 				}
-				echo "$int";
+				echo "$int<br>";
 				if (!empty($int)) {
 					$_SESSION['U_ID']=$int;
-					header('Location: /index.html');
+					echo "ok";
 				}else{
-					echo "your email is not in the system ";
+					echo "404";
 				}
-			}
-
-			login("a_b@email.com",'123456');
+			}	
 		?>
 	</body>
 </html>
