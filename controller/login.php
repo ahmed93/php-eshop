@@ -23,11 +23,17 @@
 				echo "$int<br>";
 				if (!empty($int)) {
 					$_SESSION['U_ID']=$int;
-					echo "ok";
+					$result = mysqli_query($con, "SELECT ID ,name, avatar FROM User WHERE email = '$_POST[email]' and password = '$_POST[password]'");
+					$userinfo = array();
+					$row = mysqli_fetch_array($result)
+					$rowarray = array("name"=>$row['name'],"avatar"=> $row['avatar']); 
+					array_push ($userinfo, $rowarray);
+					echo json_encode($products);
 				}else{
 					echo "404";
 				}
 			}	
+			mysqli_close($con);
 		?>
 	</body>
 </html>
