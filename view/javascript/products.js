@@ -31,7 +31,8 @@ function getProducts() {
 									</div> \
 									<div class=\"product-opt well row\"> \
 										<div class=\"col-md-4\"> \
-											<button name=\"product_"+id+"\" type=\"button\" class=\"btn btn-primary\" onClick=\"conformationProduct("+id+");\">Buy</button> \
+											<button name=\"product_"+id+"\" type=\"button\" class=\"btn btn-primary\" \
+											onClick=\"checkConnectionForConformation("+id+","+stock+","+price+",'"+description+"','"+name+"');\" >Buy</button> \
 										</div> \
 										<div class=\"col-md-offset-3 col-md-4\"> \
 											<p>"+price+"EGP</p> \
@@ -44,12 +45,20 @@ function getProducts() {
 	});
 }
 
-function conformationProduct(productID) {
-	alert(productID);
-	if (!checkforLoginUser()) {
-		reg();
-		return;
-	}
-	$("#main-body").html("");
-	$("#main-body").load("view/inc/_confomationView.html");
+function checkConnectionForConformation(pID, pStk, pPRICE, pDes, pNAME) {
+	conformationProduct(pID, pStk, pPRICE, pDes, pNAME);	
+
+	if (checkforLoginUser()) {
+		$("#main-body").load("view/inc/_confomationView.html");
+	};
+}
+
+function conformationProduct(pID, pStk, pPRICE, pDes, pNAME) {
+	$("#showP").html("<div class=\"col-sm-1\">#</div> \
+					<div class=\"col-sm-3\">"+pNAME+"</div> \
+					<div class=\"col-sm-7\">"+pDes+"</div> \
+					<div class=\"col-sm-1\">"+pPRICE+"</div> \
+					<hr/> \
+					<div class=\"col-cm-offset-10 col-sm-1\">Total Price:</div> \
+					<div class=\"col-sm-1\">"+pPRICE+"</div>");
 }

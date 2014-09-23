@@ -1,16 +1,16 @@
 function login() {
 	var em = $("#inputEmail3").val();
 	var pass = $("#inputPassword3").val();
-	alert(em);
-	alert(pass);
+	if (!LogInValidation(em,pass)) {
+		return;
+	}
+
 	$.ajax({
 		type: "POST",
 		data: {	"email": em,
 				"password": pass},
 		url: "http://localhost/AL/controller/login.php",
 		success: function(data){
-			// alert("test");
-			
 			if (data == "OK") {
 				alert(data);
 				$("#login-div").html("");
@@ -20,6 +20,27 @@ function login() {
 			}
 		}
 	});
+}
+
+
+
+function LogInValidation(user, password) {
+	var returnedV = true;
+	if (user.length < 1) {
+		document.getElementById("inputEmail3").style.border= "red 1px solid";
+		returnedV = false;
+	}else {
+		document.getElementById("inputEmail3").style.border= "";
+		returnedV = true;
+	}
+	if (password.length < 1) {
+		document.getElementById("inputPassword3").style.border= "red 1px solid";
+		returnedV = false;
+	}else {
+		document.getElementById("inputPassword3").style.border= "";
+		returnedV = true;
+	}
+	return returnedV;
 }
 
 function checkforLoginUser() {

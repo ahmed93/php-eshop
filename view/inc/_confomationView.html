@@ -1,51 +1,41 @@
-<div class="conformation well">
+<div id="pct" class="confirmation">
 	
-	<h1>&rsaquo;&rsaquo; Confirmation</h1>
+	<h1>&rsaquo;&rsaquo; Confirmation: </h1>
 	<hr/>
 
-	<div class="products-list">
-		<table style="width:100%">
-		  <tr>
-			<td>#</td>
-			<td>Porduct Name</td> 
-			<td>Product Description</td>
-			<td>Product Price</td>
-		  </tr>
-	
-		</table>
-		<!-- <div class="row">
-			<div class="header col-sm-1"><font>#</font></div>
-			<div class="header col-sm-3"><font>Product Name</font></div>
-			<div class="header col-sm-4"><font>Product Description</font></div>
-			<div class="header col-sm-offset-3 col-sm-1"><font>Product Price</font></div>
-		</div> -->
+	<div class="products-list row">
+		<div class="header col-sm-1">#</div>
+		<div class="header col-sm-3">Name</div>
+		<div class="header col-sm-7">Description</div>
+		<div class="header col-sm-1">Price</div>
+		<div id="showproduct"></div>
+		<hr>
 	</div>
-
 </div>
 
 
 <style>
 	
-	.conformation h1 {
+	.confirmation h1 {
 		padding-left: 1.0em;
 	}
-	.conformation hr {
+	.confirmation hr {
 		background-color:#000000;
 		height:0.1em;
 		width:100%;
 		float: left;
 	}
-	.conformation .products-list {
+	.confirmation .products-list {
 		padding-left: 1.0em;
 		overflow: scroll;
 		width: 100%;
-		height: 100%;
+		height: 8em;
 		text-align: center !important;
 	}
-	.conformation .products-list .header {
-		
+	.confirmation .products-list .header {
+		font-size: 1.5em;
 	}
-	.conformation .products-list font {
+	/*.confirmation .products-list font {
 		font-size: 1.0em;
-	}
+	}*/
 </style>

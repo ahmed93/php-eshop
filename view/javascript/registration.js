@@ -45,6 +45,10 @@ function regieter() {
 	});
 }
 
+function validateField(id) {
+	
+}
+
 function checkFN() {
 	var fn = $("#firstname").val();
 	if (fn.length > 0) {
