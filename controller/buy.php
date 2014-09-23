@@ -6,7 +6,7 @@
 	<body>
 		here buy
 		<?php
-			function buy($u_id){
+			function buy(){
 				$con=mysqli_connect("localhost","root","root","eshop");
 				// Check connection
 				if (mysqli_connect_errno()) {
@@ -15,10 +15,10 @@
 
 
 				mysqli_query( $con, "UPDATE Product SET stock = stock-1 WHERE ID='$p_id' ");
-				mysqli_query($con,"INSERT INTO History (user_id, product_id) VALUES ('$_SESSION['U_ID']', '$_POST[P_ID]')");
+				mysqli_query($con,"INSERT INTO History (user_id, product_id) VALUES ('$_SESSION[U_ID]', '$_POST[P_ID]')");
+				echo "done";
 			}
-
-			buy("1","2");
+			mysqli_close($con);
 		?>
 	</body>
 </html>
