@@ -40,7 +40,7 @@ html,body{
 
 .main-body {
 	width: 100% !important;
-	height: 800px !important;
+	height: 47em !important;
 	overflow-y: scroll !important;
 	overflow-x: hidden !important;
 }
