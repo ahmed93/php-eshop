@@ -9,13 +9,13 @@ $(document).ready(
 		$("#footer-div").load("view/inc/_footer.html");
 		// $("#main-body").load("view/inc/_profilePage.html");
 		checkforLoginUser();
-		// getProducts();
-		myprofile();
+		getProducts();
+		// myprofile();
 });
 
-function goHomePage() {
-	getProducts();
-}
+// function goHomePage() {
+// 	getProducts();
+// }
 
 function myprofile() {
 

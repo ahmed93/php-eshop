@@ -1,19 +1,26 @@
 <?php session_start(); ?>
 <?php
-function editUser($first_name, $last_name, $email, $password, $avatar , $check)
+editUser();
+function editUser()
 {
+	$first_name =  $_POST['first_name'];
+	$last_name =  $_POST['last_name'];
+	$email =  $_POST['email'];
+	$password =  $_POST['password'];
+	$avatar =  $_POST['avatar'];
+	$check = ($password == "");
 	switch ($check) {
-		case 'true':
+		case 0:
 			editUser_with_password($first_name, $last_name, $email, $password, $avatar);
 			break;
 		
-		case 'false':
+		case 1:
 			editUser_with_no_password($first_name, $last_name, $email, $avatar);
 			break;
 	}
 }
 
-fuction editUser_with_password($first_name, $last_name, $email, $password, $avatar)
+function editUser_with_password($first_name, $last_name, $email, $password, $avatar)
 {
 	$con=mysqli_connect("localhost","root","root","eshop");
 	// Check connection
@@ -30,11 +37,12 @@ fuction editUser_with_password($first_name, $last_name, $email, $password, $avat
 		$query = mysqli_query($con, "UPDATE User SET first_name = '$first_name', last_name = '$last_name', 
 	 		email = '$email', password = '$password', avatar = '$avatar' WHERE ID='$_SESSION[U_ID]'"); 
 	}
+	echo "ok";
 	mysqli_close($con);
 }
 
 
-fuction editUser_with_no_password($first_name, $last_name, $email, $avatar)
+function editUser_with_no_password($first_name, $last_name, $email, $avatar)
 {
 	$con=mysqli_connect("localhost","root","root","eshop");
 	// Check connection
@@ -49,9 +57,9 @@ fuction editUser_with_no_password($first_name, $last_name, $email, $avatar)
 	else
 	{	
 		$query = mysqli_query($con, "UPDATE User SET first_name = '$first_name', last_name = '$last_name', 
-	 		email = '$email', password = '$password', avatar = '$avatar' WHERE ID='$_SESSION[U_ID]'"); 
+	 		email = '$email', avatar = '$avatar' WHERE ID='$_SESSION[U_ID]'"); 
 	}
+	echo "ok";
 	mysqli_close($con);
-}
 }
 ?>

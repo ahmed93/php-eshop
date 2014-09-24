@@ -33,7 +33,7 @@ function regieter() {
 				"password": ps,
 				"passwordC": psc,
 				"avatar": av},
-		url: "http://localhost/AL/controller/register.php",
+		url: "controller/register.php",
 		success: function(data){
 			// alert(data);
 			if (data == "OK") {

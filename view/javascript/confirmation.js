@@ -1,15 +1,5 @@
 function checkConnectionForConformation(pID, pStk, pPRICE, pDes, pNAME) {
-	checkforLoginUser();
-	if (bool) {
-		$("#main-body").load("view/inc/_confomationView.html",function(){
-			conformationProduct(pID, pStk, pPRICE, pDes, pNAME);
-		});
-	}else{
-		$("#main-body").load("view/inc/_registration.html",function(){
-			
-		});
-	}
-
+	checkforLoginUserForProfile(pID, pStk, pPRICE, pDes, pNAME);
 }
 
 function conformationProduct(pID, pStk, pPRICE, pDes, pNAME) {

@@ -7,11 +7,10 @@
 function getProducts() {
 	$.ajax({
 		type: "POST",
-		url: "http://localhost/AL/controller/products.php",
+		url: "controller/products.php",
 		success: function(data){
 			var array = $.parseJSON(data);
 			var productHTML = "<div class=\"row well\">";
-
 			for (var i = 0; i < array.length; i++) {
 				var id = array[i]['ID'];
 				var description = array[i]['description']||"No info";
