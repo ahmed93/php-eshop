@@ -11,13 +11,13 @@ function login() {
 				"password": pass},
 		url: "http://localhost/AL/controller/login.php",
 		success: function(data){
-			if (data == "OK") {
-				$("#login-div").html("");
-				// $("#user-reg").html("<div class=\"alert alert-danger\">registration successfully</div>");
-			}else if(data == "email"){
-				alert("Faild to connect, Try again later .. Sorry for the inconvenience");
+			var array = $.parseJSON(data);
+			if (array === "OK") {
+				$("#login-div").load("view/inc/_logininfo.html");
+			}else if(array == "Failed"){
+				alert("Email doesn't exist !!!");
 			}else{
-				alert("connection error!!!");
+				alert("Faild to connect, Try again later .. Sorry for the inconvenience");
 			}
 		}
 	});
