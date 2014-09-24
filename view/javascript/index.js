@@ -7,14 +7,16 @@
 $(document).ready(
 	function () {
 		$("#footer-div").load("view/inc/_footer.html");
-		// $("#main-body").load("view/inc/_registration.html");
-		// $("#main-body").load("view/inc/_productsTest.html");
+		// $("#main-body").load("view/inc/_profilePage.html");
 		checkforLoginUser();
-		getProducts();
+		// getProducts();
+		myprofile();
 });
+
+function goHomePage() {
+	getProducts();
+}
 
 function myprofile() {
 
 }
-
-
