@@ -25,6 +25,4 @@
 			echo "Failed";
 		}
 	}
-	login();
-	// login("a_b@email.com",'123456');
 ?>
