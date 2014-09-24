@@ -45,6 +45,17 @@ html,body{
 	overflow-x: hidden !important;
 }
 
+.home-link {
+	padding-top: 1.3em;
+	font-family:"Chalkduster";
+	font-size: 3em;
+	/*text-align: center;*/
+	vertical-align: center;
+}
+.home-link font {
+	color: #7f7f7f;
+}
+
 .footer {
 	color: #ffffff;
     height: 50px;

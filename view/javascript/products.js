@@ -44,21 +44,3 @@ function getProducts() {
 		}
 	});
 }
-
-function checkConnectionForConformation(pID, pStk, pPRICE, pDes, pNAME) {
-	conformationProduct(pID, pStk, pPRICE, pDes, pNAME);	
-
-	if (checkforLoginUser()) {
-		$("#main-body").load("view/inc/_confomationView.html");
-	};
-}
-
-function conformationProduct(pID, pStk, pPRICE, pDes, pNAME) {
-	$("#showP").html("<div class=\"col-sm-1\">#</div> \
-					<div class=\"col-sm-3\">"+pNAME+"</div> \
-					<div class=\"col-sm-7\">"+pDes+"</div> \
-					<div class=\"col-sm-1\">"+pPRICE+"</div> \
-					<hr/> \
-					<div class=\"col-cm-offset-10 col-sm-1\">Total Price:</div> \
-					<div class=\"col-sm-1\">"+pPRICE+"</div>");
-}

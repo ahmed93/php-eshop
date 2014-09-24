@@ -35,10 +35,14 @@ function regieter() {
 				"avatar": av},
 		url: "http://localhost/AL/controller/register.php",
 		success: function(data){
+			// alert(data);
 			if (data == "OK") {
+				alert("registration successfully");
+				// $("#user-reg").html("<div class=\"alert alert-danger\">registration successfully</div>");
 				getProducts();
-				$("#user-reg").html("<div class=\"alert alert-danger\">registration successfully</div>");
 			}else if(data == "email"){
+				alert("Email exists, chose another");
+			}else {
 				alert("Faild to connect, Try again later .. Sorry for the inconvenience");
 			}
 		}

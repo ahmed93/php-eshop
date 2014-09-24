@@ -12,17 +12,16 @@ function login() {
 		url: "http://localhost/AL/controller/login.php",
 		success: function(data){
 			if (data == "OK") {
-				alert(data);
 				$("#login-div").html("");
 				// $("#user-reg").html("<div class=\"alert alert-danger\">registration successfully</div>");
 			}else if(data == "email"){
 				alert("Faild to connect, Try again later .. Sorry for the inconvenience");
+			}else{
+				alert("connection error!!!");
 			}
 		}
 	});
 }
-
-
 
 function LogInValidation(user, password) {
 	var returnedV = true;
@@ -43,21 +42,19 @@ function LogInValidation(user, password) {
 	return returnedV;
 }
 
+var bool = false;
 function checkforLoginUser() {
-	var logedIn = false;
 	$.ajax({
 		type: "GET",
 		url: "http://localhost/AL/controller/check.php",
 		success: function(data){
 			if (data == "ok") {
 				$("#login-div").load("view/inc/_logininfo.html");
-				logedIn = true;
+				bool = true;
 			}else if(data == "404"){
 				$("#login-div").load("view/inc/_login.html");
-				logedIn = false;
+				bool = false;
 			}
 		}
 	});
-
-	return logedIn;
 }
