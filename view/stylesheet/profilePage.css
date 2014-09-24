@@ -1,0 +1,63 @@
+.profile {
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden; 
+}
+
+.profile .form-control{
+	width: 30em !important;
+	float: left; !important;
+}
+
+.profile label {
+	font-style: normal !important;
+	font-weight:normal;
+}
+.profile table{
+	text-align: center;
+	vertical-align: center;	
+}
+
+.profile .edit {
+	float: right;
+	width: 5em;
+	height: 5em !important;	
+}
+
+.profile-sec {
+		/*background-color: yellow !important;*/
+		border: 1px solid #e3e3e3 !important;
+ 	 	border-radius: 4px !important;
+  		-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05)!important;
+        		box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05)!important;
+}
+
+.profile hr{
+	background-color: black;
+	height: 0.1em;
+}
+
+.profile .field-value {
+	width: 60%;
+}
+
+.profile .profile-title {
+	float: left;
+	padding-left: 2em;
+}
+
+.profile .info-div {
+	padding-top: 5em;
+	text-align: center;
+}
+
+.profile .img-div {
+	text-align: center;
+	vertical-align: center;
+	padding-top: 2em;
+}
+
+.profile .img-div img{
+	width: 20em;
+}

@@ -1,6 +1,7 @@
 <?php session_start(); ?>
 
 <?php
+	login();
 	function login(){
 		$con=mysqli_connect("localhost","root","root","eshop");
 		// Check connection
@@ -15,14 +16,14 @@
 					$int = $key;
 				}
 		}
-		echo "$int";
+
 		if (!empty($int)) {
 			$_SESSION['U_ID']=$int;
-			echo "OK";
+			echo json_encode("OK");
 			// header('Location: /index.html');
 		}else{
 			// echo "your email is not in the system ";
-			echo "Failed";
+			echo json_encode("Failed");
 		}
 	}
 ?>

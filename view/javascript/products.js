@@ -7,11 +7,10 @@
 function getProducts() {
 	$.ajax({
 		type: "POST",
-		url: "http://localhost/AL/controller/products.php",
+		url: "controller/products.php",
 		success: function(data){
 			var array = $.parseJSON(data);
 			var productHTML = "<div class=\"row well\">";
-
 			for (var i = 0; i < array.length; i++) {
 				var id = array[i]['ID'];
 				var description = array[i]['description']||"No info";
@@ -31,7 +30,8 @@ function getProducts() {
 									</div> \
 									<div class=\"product-opt well row\"> \
 										<div class=\"col-md-4\"> \
-											<button name=\"product_"+id+"\" type=\"button\" class=\"btn btn-primary\" onClick=\"conformationProduct("+id+");\">Buy</button> \
+											<button name=\"product_"+id+"\" type=\"button\" class=\"btn btn-primary\" \
+											onClick=\"checkforLoginUserForProfile("+id+","+stock+","+price+",'"+description+"','"+name+"');\" >Buy</button> \
 										</div> \
 										<div class=\"col-md-offset-3 col-md-4\"> \
 											<p>"+price+"EGP</p> \
@@ -42,14 +42,4 @@ function getProducts() {
 			$("#main-body").html(productHTML);
 		}
 	});
-}
-
-function conformationProduct(productID) {
-	alert(productID);
-	if (!checkforLoginUser()) {
-		reg();
-		return;
-	}
-	$("#main-body").html("");
-	$("#main-body").load("view/inc/_confomationView.html");
 }
