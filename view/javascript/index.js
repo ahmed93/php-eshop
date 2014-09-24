@@ -9,7 +9,8 @@ $(document).ready(
 		$("#footer-div").load("view/inc/_footer.html");
 		// $("#main-body").load("view/inc/_profilePage.html");
 		checkforLoginUser();
-		getProducts();
+		// getProducts();
+		myprofile();
 });
 
 function goHomePage() {

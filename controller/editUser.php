@@ -1,5 +1,6 @@
 <?php session_start(); ?>
 <?php
+
 function editUser($first_name, $last_name, $email, $password, $avatar)
 {
 	$con=mysqli_connect("localhost","root","root","eshop");
@@ -19,4 +20,5 @@ function editUser($first_name, $last_name, $email, $password, $avatar)
 	}
 	mysqli_close($con);
 }
+
 ?>
