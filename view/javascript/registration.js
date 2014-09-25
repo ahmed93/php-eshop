@@ -49,26 +49,23 @@ function regieter() {
 	});
 }
 
-function checkFN() {
-	var fn = $("#firstname").val();
-	if (fn.length > 0) {
-		document.getElementById("firstname").style.border= "";
-		$("#error-fn").html("");
+function checkFieldM(FieldName, errorN, Message) {
+	var field = $("#"+FieldName).val();
+	if (field.length < 1) {
+		document.getElementById(FieldName).style.border= "red 1px solid";
+		$("#"+errorN).html("<font>"+Message+"</font>");
 		return;
 	};
-	document.getElementById("firstname").style.border= "red 1px solid";
-	$("#error-fn").html("<font>First Name can not be blank</font>");
+	document.getElementById(FieldName).style.border= "";
+	$("#"+errorN).html("");
+}
+
+function checkFN() {
+	checkFieldM("firstname", "error-fn", "First Name can not be blank");
 }
 
 function checkLN() {
-	var ln = $("#lastname").val();
-	if (ln.length > 0) {
-		document.getElementById("lastname").style.border= "";
-		$("#error-ln").html("");
-		return;
-	};
-	document.getElementById("lastname").style.border= "red 1px solid";
-	$("#error-ln").html("<font>Last Name can not be blank</font>");
+	checkFieldM("lastname", "error-ln", "Last Name can not be blank");
 }
 
 function checkMail() {
