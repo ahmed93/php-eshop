@@ -4,20 +4,20 @@ function editprofile() {
 	var mail = $("#mail-value").text();
 	var avatar = $("#img-value").attr('src');
 
-	$("#mail-div").html("	<input id=\"profile-email-value\" type=\"mail\" class=\"form-control\" placeholder=\"Email\" value=\""+mail+"\">");
 	$("#fname-div").html("	<input id=\"profile-fname-value\" type=\"text\" class=\"form-control\" placeholder=\"Email\" value=\""+fname+"\">");
 	$("#lname-div").html("	<input id=\"profile-lname-value\" type=\"text\" class=\"form-control\" placeholder=\"Email\" value=\""+lname+"\">");
+	$("#mail-div").html("	<input id=\"profile-email-value\" type=\"email\" class=\"form-control\" placeholder=\"Email\" value=\""+mail+"\">");
 	$("#addedMV").append("	<div id=\"tempEdit\"><div class=\"well row profile-mail\"> \
 								<div class=\"field-title col-md-4\"> <font><b>Avatar:</b></font></div> \
-								<input onblur=\"checkFieldEmptness('profile-avatar-value', '');\" id=\"profile-avatar-value\" type=\"text\" class=\"form-control col-md-8\"  placeholder=\"Avatar\" value=\""+avatar+"\"> \
+								<input onblur=\"loadIMG();\" id=\"profile-avatar-value\" type=\"text\" class=\"form-control col-md-8\"  placeholder=\"Avatar\" value=\""+avatar+"\"> \
 							</div> \
 							<div class=\"well row profile-pass\"> \
 								<div class=\"field-title col-md-4\"> <font><b>Password:</b> </font></div> \
-								<input onblur=\"checkPassPro();\" id=\"profile-pass-value\" type=\"password\" class=\"form-control col-md-8\"  placeholder=\"password\"\"> \
+								<input onblur=\"validatePasswordProfile();\" id=\"profile-pass-value\" type=\"password\" class=\"form-control col-md-8\"  placeholder=\"password - leave it black, If No change Required\"\"> \
 							</div> \
 							<div class=\"well row profile-passC\"> \
 								<div class=\"field-title col-md-4\"> <font><b>Password confirmation:</b> </font></div> \
-								<input onblur=\"checkPassCPro();\" id=\"profile-passC-value\" type=\"password\" class=\"form-control col-md-8\"  placeholder=\"password confirmation\"\"> \
+								<input onblur=\"checkPassCPro();\" id=\"profile-passC-value\" type=\"password\" class=\"form-control col-md-8\"  placeholder=\"password confirmation - leave it black, If No change Required\"\"> \
 							</div>");
 
 	$("#editB").html("<button class=\"btn btn-danger glyphicon glyphicon-ok\" onClick=\"doneProfileEdit()\"> Save</button>")
@@ -26,6 +26,20 @@ function editprofile() {
 function loadIMG() {
 	var av = $("#profile-avatar-value").val();
 	$("#img-value").attr('src', av);
+}
+
+function validatePasswordProfile() {
+	var password = $("#profile-pass-value").val();
+	var passwordC = $("#profile-passC-value").val();
+
+	if (password.length > 0) {
+		if (password != passwordC) {
+			$("#'fieldN'").css("border-color:red 1px solid;");
+		}else {
+			$("#'fieldN'").css("border-color:normal;");
+		}
+	};
+
 }
 
 function doneProfileEdit() {
@@ -74,7 +88,7 @@ function changeDivBack(){
 
 function checkFieldEmptness(fieldN, errorTXT) {
 	var text = $("#'fieldN'").val();
-	if (text.lenght < 1) {
+	if (text.length < 1) {
 		$("#'fieldN'").css("border-color:red 1px solid;");
 	}else {
 		$("#'fieldN'").css("border-color:normal;");

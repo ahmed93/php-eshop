@@ -26,6 +26,11 @@ function regiester() {
 	if (validate(fn, ln, em, ps, psc)) {
 		return;
 	}
+
+	if (ps != psc) {
+		return;
+	}
+	
 	$.ajax({
 		type: "POST",
 		data: {	"first_name": fn,
@@ -50,6 +55,7 @@ function regiester() {
 						if (array == "OK") {
 							checkforLoginUser();
 					}
+				}
 				});
 			}else if(data == "email"){
 				alert("Email exists, chose another");
