@@ -1,25 +1,40 @@
-<div class="history-main container">
-	<table>
-		<tr>
+<div id="history-main-div" class="history-main container">
+	<!-- <table class="table table-striped table-condensed">
+		<tr class="header-table-info">
 			<td width="10%"> <label> # </label> </td>
 			<td width="40%"> <label>Product Name </label> </td>
 			<td width="50%"> <label>Date of Transaction </label> </td>
 		</tr>
-		<tr colspan="3">
-			<hr>
-		</tr>
-	</table>
+		<div id="history-content">
+			<tr>
+				<td>1</td>
+				<td>test</td>
+				<td>2-4-4</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>test</td>
+				<td>2-4-4</td>
+			</tr>
+		</div>
+	</table> -->
 </div>
 
 <style type="text/css">
+
 	.history-main{
-		background-color: yellow !important;
+		/*background-color: yellow !important;*/
 		height: 40em;
+		overflow: scroll;
 	}
 
 	.history-main table{
 		width: 100%;
 		text-align: center;
+		border: 1px solid #c1c1c1;
+  		border-radius: 4px;
+  			-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+          	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
 	}
 
 </style>	

@@ -1,6 +1,5 @@
 function conformationProduct(pID, pStk, pPRICE, pDes, pNAME) {
 	var elem = $("#showproduct");
-	// alert(elem.length);
 	elem.html("<div class=\"col-sm-1\">1</div> \
 				<div class=\"col-sm-3\">"+pNAME+"</div> \
 				<div class=\"col-sm-7\">"+pDes+"</div> \
@@ -19,10 +18,9 @@ function conformationProduct(pID, pStk, pPRICE, pDes, pNAME) {
 function confirmeTransaction(id) {
 	$.ajax({
 		type: "POST",
-		data: {'id':id},
+		data: {'ID':id},
 		url: "controller/buy.php",
 		success: function(data){
-			alert(data);
 			if (data == "ok") {
 				getProducts();
 				alert("Your have Transaction was succssfully");

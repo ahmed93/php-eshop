@@ -4,7 +4,6 @@ function login() {
 	if (!LogInValidation(em,pass)) {
 		return;
 	}
-
 	$.ajax({
 		type: "POST",
 		data: {	"email": em,
