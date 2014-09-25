@@ -7,11 +7,10 @@
 function getProducts() {
 	$.ajax({
 		type: "POST",
-		url: "http://localhost/AL/controller/products.php",
+		url: "controller/products.php",
 		success: function(data){
 			var array = $.parseJSON(data);
 			var productHTML = "<div class=\"row well\">";
-
 			for (var i = 0; i < array.length; i++) {
 				var id = array[i]['ID'];
 				var description = array[i]['description']||"No info";
@@ -32,7 +31,7 @@ function getProducts() {
 									<div class=\"product-opt well row\"> \
 										<div class=\"col-md-4\"> \
 											<button name=\"product_"+id+"\" type=\"button\" class=\"btn btn-primary\" \
-											onClick=\"checkConnectionForConformation("+id+","+stock+","+price+",'"+description+"','"+name+"');\" >Buy</button> \
+											onClick=\"checkforLoginUserForProfile("+id+","+stock+","+price+",'"+description+"','"+name+"');\" >Buy</button> \
 										</div> \
 										<div class=\"col-md-offset-3 col-md-4\"> \
 											<p>"+price+"EGP</p> \

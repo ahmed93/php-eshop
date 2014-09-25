@@ -7,7 +7,7 @@ function myprofile() {
 	$("#main-body").load("view/inc/_profilePage.html", function(){
 		$.ajax({
 			type: "GET",
-			url: "http://localhost/AL/controller/viewUser.php",
+			url: "controller/viewUser.php",
 			success: function(data){
 				var array = $.parseJSON(data);
 				$("#fname-value").text(array[0]['first_name']);

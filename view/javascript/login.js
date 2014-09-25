@@ -9,11 +9,11 @@ function login() {
 		type: "POST",
 		data: {	"email": em,
 				"password": pass},
-		url: "http://localhost/AL/controller/login.php",
+		url: "controller/login.php",
 		success: function(data){
 			var array = $.parseJSON(data);
-			if (array === "OK") {
-				$("#login-div").load("view/inc/_logininfo.html");
+			if (array == "OK") {
+				checkforLoginUser();
 			}else if(array == "Failed"){
 				alert("Email doesn't exist !!!");
 			}else{
@@ -42,19 +42,52 @@ function LogInValidation(user, password) {
 	return returnedV;
 }
 
-var bool = false;
-function checkforLoginUser() {
+function checkforLoginUserForProfile(pID, pStk, pPRICE, pDes, pNAME) {
 	$.ajax({
 		type: "GET",
-		url: "http://localhost/AL/controller/check.php",
+		url: "controller/check.php",
 		success: function(data){
 			if (data == "ok") {
-				$("#login-div").load("view/inc/_logininfo.html");
-				bool = true;
+				$("#main-body").load("view/inc/_confomationView.html",function(){
+					conformationProduct(pID, pStk, pPRICE, pDes, pNAME);
+				});
 			}else if(data == "404"){
-				$("#login-div").load("view/inc/_login.html");
-				bool = false;
+				$("#main-body").load("view/inc/_registration.html",function(){
+					alert("register PLZ or Login..");
+				});
 			}
+		}
+	});
+}
+
+function checkforLoginUser() {
+	// $.ajax({
+	// 	type: "GET",
+	// 	url: "controller/check.php",
+	// 	success: function(data){
+	// 		if (data == "ok") {
+	// 			$("#login-div").load("view/inc/_loginInfo.html",function(){
+
+	// 			});
+	// 		}else if(data == "404"){
+	// 			$("#login-div").load("view/inc/_login.html");
+	// 		}
+	// 	}
+	// });
+	$.ajax({
+		type: "GET",
+		url: "controller/viewUser.php",
+		success: function(data){
+			var array = $.parseJSON(data);
+			if (array=="") {
+				$("#login-div").load("view/inc/_login.html");
+			}else{
+				$("#login-div").load("view/inc/_loginInfo.html",function(){
+					$("#profileName-divM").text(array[0]['first_name']);
+					$("#profileIMG-divM").attr('src',array[0]['avatar']);
+				});
+			}
+			
 		}
 	});
 }
