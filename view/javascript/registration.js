@@ -35,7 +35,7 @@ function regieter() {
 				"avatar": av},
 		url: "controller/register.php",
 		success: function(data){
-			// alert(data);
+			alert(data);
 			if (data == "OK") {
 				alert("registration successfully");
 				// $("#user-reg").html("<div class=\"alert alert-danger\">registration successfully</div>");
@@ -58,7 +58,8 @@ function checkFN() {
 	};
 	document.getElementById("firstname").style.border= "red 1px solid";
 	$("#error-fn").html("<font>First Name can not be blank</font>");
-};
+}
+
 function checkLN() {
 	var ln = $("#lastname").val();
 	if (ln.length > 0) {
@@ -68,7 +69,8 @@ function checkLN() {
 	};
 	document.getElementById("lastname").style.border= "red 1px solid";
 	$("#error-ln").html("<font>Last Name can not be blank</font>");
-};
+}
+
 function checkMail() {
 	var em = $("#email").val();
 	if (em.length > 0) {
@@ -78,7 +80,8 @@ function checkMail() {
 	};
 	document.getElementById("email").style.border= "red 1px solid";
 	$("#error-em").html("<font>Email can not be blank</font>");
-};
+}
+
 function checkPass() {
 	var ps = $("#password").val();
 	if (ps.length < 1) {
@@ -88,7 +91,8 @@ function checkPass() {
 	};
 	document.getElementById("password").style.border= "";
 	$("#error-ps").html("");
-};
+}
+
 function checkPass() {
 	var psc = $("#passwordconf").val();
 	if (psc.length < 1) {
@@ -98,8 +102,7 @@ function checkPass() {
 	};
 	document.getElementById("passwordconf").style.border= "";
 	$("#error-psc").html("");
-};
-
+}
 
 function validate(firstN, lastN, EM, Pass, PassC) {
 	var x = false;

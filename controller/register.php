@@ -24,7 +24,7 @@ function register()
 		$query2 = mysqli_query($con, "INSERT INTO User(first_name,last_name,email,password,avatar)
 			VALUES ('$first_name','$last_name','$email','$password','$avatar')");
 		// echo "YOUR REGISTRATION IS COMPLETED...";
-		$user_id = mysqli_insert_id();
+		$user_id = mysqli_insert_id($con);
 		$_SESSIION['U_ID']=$user_id;
 		echo "OK";
 		mysqli_close($con);
