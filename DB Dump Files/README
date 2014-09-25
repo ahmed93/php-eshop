@@ -1,0 +1,3 @@
+in case of error in importing _ESHOP_DUMO.sql file :-
+    -use _ESHOP_Dump_TXT which contains the sql queries 
+        copy and paste them in SQL Tab in phpmyadmin
