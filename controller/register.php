@@ -21,7 +21,7 @@ function register()
 		// echo "email already exists";
 	}
 	else {
-		if ($avatar =  "")
+		if ($avatar ==  "")
 		{
 			$avatar= "http://productfind.interiordesign.net/media/photos/37/37806-18469-cfakepathno-product-image.jpg";	
 		}
