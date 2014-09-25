@@ -20,8 +20,14 @@ function myprofile() {
 }
 
 function logOut() {
-	$("#main-body").load("view/inc/_profilePage.html");
-	$("#login-div").load("view/inc/_login.html");
-	getProducts();
-	bool = false;
+	$.ajax({
+		type: "GET",
+		url: "controller/logout.php",
+		success: function(data){
+			$("#login-div").load("view/inc/_login.html",function(){
+				getProducts();
+				alert("You have LogedOut successfully ..");
+			});
+		}
+	});
 }

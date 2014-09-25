@@ -61,30 +61,18 @@ function checkforLoginUserForProfile(pID, pStk, pPRICE, pDes, pNAME) {
 }
 
 function checkforLoginUser() {
-	// $.ajax({
-	// 	type: "GET",
-	// 	url: "controller/check.php",
-	// 	success: function(data){
-	// 		if (data == "ok") {
-	// 			$("#login-div").load("view/inc/_loginInfo.html",function(){
-
-	// 			});
-	// 		}else if(data == "404"){
-	// 			$("#login-div").load("view/inc/_login.html");
-	// 		}
-	// 	}
-	// });
 	$.ajax({
 		type: "GET",
 		url: "controller/viewUser.php",
 		success: function(data){
 			var array = $.parseJSON(data);
-			if (array=="") {
+			if (array=="404") {
 				$("#login-div").load("view/inc/_login.html");
 			}else{
 				$("#login-div").load("view/inc/_loginInfo.html",function(){
 					$("#profileName-divM").text(array[0]['first_name']);
 					$("#profileIMG-divM").attr('src',array[0]['avatar']);
+					getProducts();
 				});
 			}
 			

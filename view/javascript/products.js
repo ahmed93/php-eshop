@@ -27,17 +27,24 @@ function getProducts() {
 										<div class=\"well\"> \
 											<font>"+description+"</font> \
 										</div> \
-									</div> \
-									<div class=\"product-opt well row\"> \
-										<div class=\"col-md-4\"> \
-											<button name=\"product_"+id+"\" type=\"button\" class=\"btn btn-primary\" \
-											onClick=\"checkforLoginUserForProfile("+id+","+stock+","+price+",'"+description+"','"+name+"');\" >Buy</button> \
+									</div> ";
+				if (stock > 0) {
+					productHTML += "	<div class=\"product-opt well row\"> \
+											<div class=\"col-md-4\"> \
+												<button name=\"product_"+id+"\" type=\"button\" class=\"btn btn-primary\" \
+												onClick=\"checkforLoginUserForProfile("+id+","+stock+","+price+",'"+description+"','"+name+"');\" >Buy</button> \
+											</div> \
+											<div class=\"col-md-offset-3 col-md-4\"> \
+												<p>"+price+"EGP</p> \
+											</div> \
 										</div> \
-										<div class=\"col-md-offset-3 col-md-4\"> \
-											<p>"+price+"EGP</p> \
+									</div>";
+				} else if(stock <= 0) {
+					productHTML += "	<div class=\"well row\" style=\"height:5em;\"> \
+											<img src=\"view/img/OFS.png\" alt=\"Out Of Stock\" width=\"100%;\" height=\"40em;\"> \
 										</div> \
-									</div> \
-								</div>";
+									</div>";
+				}
 			};
 			$("#main-body").html(productHTML);
 		}
