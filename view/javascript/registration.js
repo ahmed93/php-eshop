@@ -8,7 +8,7 @@ function reg() {
  *	Return : none
  *	Author: Ahmed Mohmaed Magdi
  */
-function regieter() {
+function regiester() {
 	$("#error-fn").html("");
 	$("#error-ln").html("");
 	$("#error-em").html("");
@@ -22,6 +22,7 @@ function regieter() {
 	var ps = $("#password").val();
 	var psc = $("#passwordconf").val();
 	var av = $("#avatarurl").val();
+
 	if (validate(fn, ln, em, ps, psc)) {
 		return;
 	}
@@ -38,8 +39,18 @@ function regieter() {
 			alert(data);
 			if (data == "OK") {
 				alert("registration successfully");
-				// $("#user-reg").html("<div class=\"alert alert-danger\">registration successfully</div>");
 				getProducts();
+				$.ajax({
+					type: "POST",
+					data: {	"email": em,
+							"password": ps},
+					url: "controller/login.php",
+					success: function(data){
+						var array = $.parseJSON(data);
+						if (array == "OK") {
+							checkforLoginUser();
+					}
+				});
 			}else if(data == "email"){
 				alert("Email exists, chose another");
 			}else {
@@ -54,51 +65,39 @@ function checkFieldM(FieldName, errorN, Message) {
 	if (field.length < 1) {
 		document.getElementById(FieldName).style.border= "red 1px solid";
 		$("#"+errorN).html("<font>"+Message+"</font>");
-		return;
+		return false;
 	};
 	document.getElementById(FieldName).style.border= "";
 	$("#"+errorN).html("");
+	if(FieldName == "passwordconf") {
+		var tmpMainPass = $("#password").val();
+		if (tmpMainPass != field) {
+			document.getElementById("passwordconf").style.border= "red 1px solid";
+			$("#error-psc").html("<font>Password dosen't match</font>");
+			return false;
+		}
+	}
+	return true;
 }
 
-function checkFN() {
+function validateFN() {
 	checkFieldM("firstname", "error-fn", "First Name can not be blank");
 }
 
-function checkLN() {
+function validateLN() {
 	checkFieldM("lastname", "error-ln", "Last Name can not be blank");
 }
 
-function checkMail() {
-	var em = $("#email").val();
-	if (em.length > 0) {
-		document.getElementById("email").style.border= "";
-		$("#error-em").html("");
-		return;
-	};
-	document.getElementById("email").style.border= "red 1px solid";
-	$("#error-em").html("<font>Email can not be blank</font>");
+function validateMail() {
+	checkFieldM("email", "error-em", "Email can not be blank");
 }
 
-function checkPass() {
-	var ps = $("#password").val();
-	if (ps.length < 1) {
-		document.getElementById("password").style.border= "red 1px solid";
-		$("#error-ps").html("<font>Password can not be blank</font>");
-		return;
-	};
-	document.getElementById("password").style.border= "";
-	$("#error-ps").html("");
+function validatePassword() {
+	checkFieldM("password", "error-ps", "Password can not be blank");
 }
 
-function checkPass() {
-	var psc = $("#passwordconf").val();
-	if (psc.length < 1) {
-		document.getElementById("passwordconf").style.border= "red 1px solid";
-		$("#error-psc").html("<font>Password Conformation don't match</font>");
-		return;
-	};
-	document.getElementById("passwordconf").style.border= "";
-	$("#error-psc").html("");
+function validatePasswordCon() {
+	checkFieldM("passwordconf", "error-psc", "Password can not be blank");
 }
 
 function validate(firstN, lastN, EM, Pass, PassC) {
