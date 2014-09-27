@@ -11,10 +11,10 @@ function register()
 	$first_name = $_POST['first_name'];
 	$last_name = $_POST['last_name'];
 	$email = $_POST['email'];
-	$password = $_POST['password'];
+	$password = md5($_POST['password']);
 	$avatar =  $_POST['avatar'];
 	//test_validation();
-	$query = mysqli_query($con, "SELECT ID FROM User WHERE email= '$_POST[email]' and password = '$_POST[password]'");
+	$query = mysqli_query($con, "SELECT ID FROM User WHERE email= '$email' and password = '$password'");
 	if (mysqli_num_rows($query) != 0)
 	{
 		echo "email";

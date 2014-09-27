@@ -4,7 +4,6 @@ function myHistory() {
 			type: "GET",
 			url: "controller/history.php",
 			success: function(data) {
-				// alert(data);
 				var array = $.parseJSON(data);
 				var dataString = "<table class=\"table table-striped table-condensed\"> \
 									<tr class=\"header-table-info\"> \
@@ -22,7 +21,6 @@ function myHistory() {
 										<td>"+array[i]['price']+"</td> \
 									</tr>";
 					totalPrice += parseInt(array[i]['price']);
-					// alert(totalPrice);
 				};
 				dataString +="</table>";
 

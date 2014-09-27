@@ -14,7 +14,7 @@ function login() {
 			if (array == "OK") {
 				checkforLoginUser();
 			}else if(array == "Failed"){
-				alert("Email doesn't exist !!!");
+				alert("email/password doesn't match... !!!");
 			}else{
 				alert("Faild to connect, Try again later .. Sorry for the inconvenience");
 			}
@@ -52,7 +52,7 @@ function checkforLoginUserForProfile(pID, pStk, pPRICE, pDes, pNAME) {
 				});
 			}else if(data == "404"){
 				$("#main-body").load("view/inc/_registration.html",function(){
-					alert("register PLZ or Login..");
+					alert("you have to be a member to buy from us..");
 				});
 			}
 		}

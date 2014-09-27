@@ -41,7 +41,6 @@ function regiester() {
 				"avatar": av},
 		url: "controller/register.php",
 		success: function(data){
-			alert(data);
 			if (data == "OK") {
 				alert("registration successfully");
 				getProducts();
