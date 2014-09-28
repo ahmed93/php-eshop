@@ -17,8 +17,8 @@ function register()
 	$query = mysqli_query($con, "SELECT ID FROM User WHERE email= '$email' and password = '$password'");
 	if (mysqli_num_rows($query) != 0)
 	{
+		// Email already exists;
 		echo "email";
-		// echo "email already exists";
 	}
 	else {
 		if ($avatar ==  "")
